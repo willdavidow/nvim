@@ -18,6 +18,10 @@ keymap("v", ">", ">gv", { noremap = true, silent = true })
 keymap("n", "<C-s>", ":w<CR>", { noremap = true, silent = true })
 keymap("i", "<C-s>", "<ESC> :w<CR>", { noremap = true, silent = true })
 
+-- Save file by <leader>w (all files by <leader>W)
+keymap("n", "<leader>w", ":w<CR>", { noremap = true })
+keymap("n", "<leader>W", ":wa<CR>", { noremap = true })
+
 -- Make word uppercase
 keymap("n", "<C-u>", "viwU<ESC>", { noremap = true })
 keymap("i", "<C-u>", "<ESC>viwUi", { noremap = true })
@@ -114,3 +118,10 @@ keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", { noremap = true, silent = 
 keymap("n", "L", "<cmd>lua vim.lsp.buf.signature_help()<CR>", { noremap = true, silent = true })
 keymap("n", "]g", "<cmd>lua vim.diagnostic.goto_next({ float = { border = 'rounded' }})<CR>", { noremap = true, silent = true })
 keymap("n", "[g", "<cmd>lua vim.diagnostic.goto_prev({ float = { border = 'rounded' }})<CR>", { noremap = true, silent = true })
+
+-- Map U to 'redo'
+keymap("n", "U", "<C-r>", { noremap = true })
+
+-- Map jk, and kj to Escape key (in insert mode)
+keymap("i", "jk", "<Esc>", { noremap = true, silent = true})
+keymap("i", "kj", "<Esc>", { noremap = true, silent = true})

@@ -1,7 +1,7 @@
 vim.g.nvim_tree_respect_buf_cwd = 1
 
 local keymappings = {
-  { key = {"<CR>", "o", "<2-LeftMouse>"}, action = "edit" },
+  { key = {"<CR>", "o", "l", "<2-LeftMouse>"}, action = "edit" },
   -- <C-e> keymapping cannot be set because it's used for toggling nvim-tree
   -- { key = "<C-e>",                        action = "edit_in_place" },
   { key = {"O"},                          action = "edit_no_picker" },
@@ -12,7 +12,7 @@ local keymappings = {
   { key = "<",                            action = "prev_sibling" },
   { key = ">",                            action = "next_sibling" },
   { key = "P",                            action = "parent_node" },
-  { key = "<BS>",                         action = "close_node" },
+  { key = {"<BS>", "h"},                  action = "close_node" },
   { key = "<Tab>",                        action = "preview" },
   { key = "K",                            action = "first_sibling" },
   { key = "J",                            action = "last_sibling" },
@@ -54,7 +54,7 @@ require'nvim-tree'.setup {
   -- opens the tree when changing/opening a new tab if the tree wasn't previously opened
   open_on_tab         = false,
   -- hijack the cursor in the tree to put it at the start of the filename
-  hijack_cursor       = false,
+  hijack_cursor       = true,
   -- updates the root directory of the tree on `DirChanged` (when your run `:cd` usually)
   update_cwd          = true,
   -- opens in place of the unnamed buffer if it's empty
@@ -117,8 +117,15 @@ require'nvim-tree'.setup {
   trash = {
     cmd = "trash",
     require_confirm = true
+  },
+  actions = {
+    open_file = {
+      quit_on_open = true
+    }
   }
 }
 
 vim.api.nvim_set_keymap("n", "<C-e>", "<cmd>lua require'nvim-tree'.toggle()<CR>", {noremap = true, silent = true})
+vim.api.nvim_set_keymap("n", ",e", "<cmd>lua require'nvim-tree'.toggle()<CR>", {noremap = true, silent = true})
+-- vim.api.nvim_set_keymap("n", ",\\", "<cmd>lua require'nvim-tree'.toggle()<CR>", {noremap = true, silent = true})
 

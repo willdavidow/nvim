@@ -46,15 +46,15 @@ EcoVim = {
   -- Check installed servers by :LspInstallInfo
   lsp = {
     servers = {
-      -- 'bash',
-      -- 'css',
-      -- 'eslint',
-      -- 'graphql',
-      -- 'html',
-      -- 'json',
-      -- 'lua',
+      'bash',
+      'css',
+      'eslint',
+      'graphql',
+      'html',
+      'json',
+      'lua',
       -- 'tailwind',
-      -- 'tsserver',
+      'tsserver',
       -- 'vue2'
     }
   }

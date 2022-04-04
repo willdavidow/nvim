@@ -86,8 +86,10 @@ local function init()
   -- General
   use {'AndrewRadev/switch.vim'}
   use {'AndrewRadev/splitjoin.vim'}
+  use {'andymass/vim-matchup'}
   use {'numToStr/Comment.nvim', config = "require('plugins.comment')"}
   use {'akinsho/nvim-toggleterm.lua', config = "require('plugins.toggleterm')"}
+  use {'tpope/vim-sleuth'}
   use {'tpope/vim-repeat'}
   use {'tpope/vim-speeddating'}
   use {'tpope/vim-surround'}
