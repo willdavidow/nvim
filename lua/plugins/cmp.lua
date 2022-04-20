@@ -104,14 +104,25 @@ cmp.setup {
 
   -- You should specify your *installed* sources.
   sources = {
-    { name = 'nvim_lsp'                        },
-    { name = 'npm'                             },
-    { name = 'cmp_tabnine', max_item_count = 3 },
-    { name = 'buffer', keyword_length = 5      },
-    { name = 'path'                            },
-    { name = 'luasnip'                         },
-    { name = 'calc'                            },
-    { name = 'nvim_lua'                        },
+    { name = 'npm', priority = 9                             },
+    { name = 'nvim_lsp', priority = 8                        },
+    { name = 'cmp_tabnine', priority = 8, max_item_count = 3 },
+    { name = 'luasnip', priority = 7                         },
+    { name = 'buffer', priority = 7, keyword_length = 5      },
+    { name = 'nvim_lua', priority = 5                        },
+    { name = 'path',priority = 4                             },
+    { name = 'calc', priority = 3                            },
+  },
+
+  sorting = {
+    priority_weight = 1.0,
+    comparators = {
+      cmp.config.compare.locality,
+      cmp.config.compare.recently_used,
+      cmp.config.compare.score,
+      cmp.config.compare.offset,
+      cmp.config.compare.order,
+    },
   },
 
   confirm_opts = {
@@ -119,14 +130,26 @@ cmp.setup {
     select = false,
   },
 
-  documentation = {
-    border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+  window = {
+    completion = {
+      border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+      winhighlight = "NormalFloat:NormalFloat,FloatBorder:FloatBorder",
+      scrollbar = "║",
+      autocomplete = {
+        require("cmp.types").cmp.TriggerEvent.InsertEnter,
+        require("cmp.types").cmp.TriggerEvent.TextChanged,
+      },
+    },
+    documentation = {
+      border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+      winhighlight = "NormalFloat:NormalFloat,FloatBorder:FloatBorder",
+      scrollbar = "║",
+    },
   },
 
   experimental = {
-    native_menu = false,
     ghost_text = true,
-  }
+  },
 }
 
 tabnine:setup({
