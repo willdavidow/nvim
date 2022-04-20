@@ -82,6 +82,7 @@ local function init()
   use {'nvim-lua/popup.nvim'}
   use {'SmiteshP/nvim-gps', config = "require('plugins.gps')", after = 'nvim-treesitter'}
   use {'jose-elias-alvarez/nvim-lsp-ts-utils', after = {'nvim-treesitter'}}
+  use {'ray-x/lsp_signature.nvim', config = "require('plugins.lsp-signature')"}
 
   -- General
   use {'AndrewRadev/switch.vim'}
@@ -123,6 +124,7 @@ local function init()
   use {'lukas-reineke/indent-blankline.nvim', config = "require('plugins.indent')"}
   use {'norcalli/nvim-colorizer.lua', config = "require('plugins.colorizer')"}
   use {'L3MON4D3/LuaSnip', requires = {'rafamadriz/friendly-snippets'}, after = 'cmp_luasnip'}
+  use {'github/copilot.vim' }
 
   -- Nvim Tree / Rooter
   use {'kyazdani42/nvim-tree.lua', config = "require('plugins.tree')"}
