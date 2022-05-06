@@ -113,27 +113,6 @@ keymap("n", "<Leader>pr", "<cmd>lua require('spectre').open_visual({select_word=
 keymap("v", "<Leader>pr", "<cmd>lua require('spectre').open_visual()<CR>")
 
 -- LSP
-<<<<<<< HEAD
-keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", { noremap = true, silent = true })
-keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", { noremap = true, silent = true })
-keymap("n", "<C-Space>", "<cmd>lua vim.lsp.buf.code_action()<CR>", { silent = true })
-keymap("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", { noremap = true, silent = true })
-keymap("v", "<leader>ca", "<cmd>'<,'>lua vim.lsp.buf.range_code_action()<CR>", { noremap = true, silent = true })
-keymap("n", "<leader>cr", "<cmd>lua vim.lsp.buf.rename()<CR>", { noremap = true, silent = true })
-keymap("n", "<leader>cf", "<cmd>lua vim.lsp.buf.formatting()<CR>", { noremap = true, silent = true })
-keymap("v", "<leader>cf", "<cmd>'<.'>lua vim.lsp.buf.range_formatting()<CR>", { noremap = true, silent = true })
-keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", { noremap = true, silent = true })
-keymap("n", "L", "<cmd>lua vim.lsp.buf.signature_help()<CR>", { noremap = true, silent = true })
-keymap("n", "]g", "<cmd>lua vim.diagnostic.goto_next({ float = { border = 'rounded' }})<CR>", { noremap = true, silent = true })
-keymap("n", "[g", "<cmd>lua vim.diagnostic.goto_prev({ float = { border = 'rounded' }})<CR>", { noremap = true, silent = true })
-
--- Map U to 'redo'
-keymap("n", "U", "<C-r>", { noremap = true })
-
--- Map jk, and kj to Escape key (in insert mode)
-keymap("i", "jk", "<Esc>", { noremap = true, silent = true})
-keymap("i", "kj", "<Esc>", { noremap = true, silent = true})
-=======
 keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", silent)
 keymap("n", "gr", "<cmd>lua vim.lsp.buf.references({ includeDeclaration = false })<CR>", silent)
 keymap("n", "<C-Space>", "<cmd>lua vim.lsp.buf.code_action()<CR>", silent)
@@ -146,4 +125,9 @@ keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", silent)
 keymap("n", "L", "<cmd>lua vim.lsp.buf.signature_help()<CR>", silent)
 keymap("n", "]g", "<cmd>lua vim.diagnostic.goto_next({ float = { border = 'rounded' }})<CR>", silent)
 keymap("n", "[g", "<cmd>lua vim.diagnostic.goto_prev({ float = { border = 'rounded' }})<CR>", silent)
->>>>>>> e871b97e85208e315cad7b1f3a14639417ee2176
+-- Map U to 'redo'
+keymap("n", "U", "<C-r>", silent)
+
+-- Map jk, and kj to Escape key (in insert mode)
+keymap("i", "jk", "<Esc>", silent)
+keymap("i", "kj", "<Esc>", silent)
