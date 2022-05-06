@@ -2,8 +2,8 @@ local M = {}
 local fn = vim.fn
 
 M.file_exists = function(path)
-  local f=io.open(path, "r")
-   if f~=nil then io.close(f) return true else return false end
+  local f = io.open(path, "r")
+  if f ~= nil then io.close(f) return true else return false end
 end
 
 M.get_relative_fname = function()
@@ -12,9 +12,10 @@ M.get_relative_fname = function()
 end
 
 M.get_relative_gitdir = function()
-  local fname = vim.fn.expand('%:p')
+  local fpath = vim.fn.expand('%:h')
+  local fname = vim.fn.expand('%:t')
   local gitpath = vim.fn.systemlist("git rev-parse --show-toplevel")[1]
-  return fname:gsub(gitpath .. '/', '')
+  return fpath:gsub(gitpath, '') .. '/' .. fname
 end
 
 M.sleep = function(n)
@@ -34,7 +35,7 @@ M.starts_with = function(str, start)
 end
 
 M.end_with = function(str, ending)
-  return ending == "" or str:sub(-#ending) == ending
+  return ending == "" or str:sub(- #ending) == ending
 end
 
 M.split = function(s, delimiter)
@@ -107,6 +108,10 @@ M.jobstart = function(cmd, on_finish)
     stdout_buffered = true,
     stderr_buffered = true,
   })
+end
+
+M.remove_whitespaces = function (string)
+  return string:gsub("%s+", "")
 end
 
 return M

@@ -69,13 +69,14 @@ local function init()
   use {'hrsh7th/cmp-nvim-lsp', after = 'cmp-nvim-lua'}
   use {'hrsh7th/cmp-buffer', after = 'cmp-nvim-lsp'}
   use {'hrsh7th/cmp-path', after = 'cmp-buffer'}
-  use {'hrsh7th/cmp-calc', after = 'cmp-path'}
+  use {'hrsh7th/cmp-cmdline', after = 'cmp-path'}
+  use {'hrsh7th/cmp-calc', after = 'cmp-cmdline'}
   use {'tzachar/cmp-tabnine', run = './install.sh', requires = 'hrsh7th/nvim-cmp', after = 'cmp-calc'}
   use {'David-Kunz/cmp-npm', after = 'cmp-tabnine', requires = 'nvim-lua/plenary.nvim', config = "require('plugins.cmp-npm')"}
   use {'saadparwaiz1/cmp_luasnip', after = 'cmp-npm'}
 
   -- LSP Addons
-  use {'williamboman/nvim-lsp-installer', event = 'BufEnter', after = 'cmp-nvim-lsp', config = "require('lsp.installer')"}
+  use {'williamboman/nvim-lsp-installer', event = 'BufEnter', after = 'cmp-nvim-lsp'}
   use {'stevearc/dressing.nvim', requires = 'MunifTanjim/nui.nvim', config = "require('plugins.dressing')"}
   use {'onsails/lspkind-nvim'}
   use {'folke/lsp-trouble.nvim', config = "require('plugins.trouble')"}
@@ -89,7 +90,7 @@ local function init()
   use {'AndrewRadev/splitjoin.vim'}
   use {'andymass/vim-matchup'}
   use {'numToStr/Comment.nvim', config = "require('plugins.comment')"}
-  use {'akinsho/nvim-toggleterm.lua', config = "require('plugins.toggleterm')"}
+  use {'akinsho/nvim-toggleterm.lua', branch = 'main', config = "require('plugins.toggleterm')"}
   use {'tpope/vim-sleuth'}
   use {'tpope/vim-repeat'}
   use {'tpope/vim-speeddating'}
@@ -99,7 +100,7 @@ local function init()
   use {'junegunn/vim-easy-align'}
   use {'JoosepAlviste/nvim-ts-context-commentstring', after = 'nvim-treesitter'}
   use {'nacro90/numb.nvim', config = "require('plugins.numb')"}
-  use {'folke/todo-comments.nvim'}
+  use {'folke/todo-comments.nvim', config = "require('plugins.todo-comments')"}
   use {'folke/zen-mode.nvim', config = "require('plugins.zen')", disable = not EcoVim.plugins.zen.enabled}
   use {'folke/twilight.nvim', config = function() require("twilight").setup {} end, disable = not EcoVim.plugins.zen.enabled}
   use {'ggandor/lightspeed.nvim'}
@@ -117,6 +118,7 @@ local function init()
     ft = { 'markdown' }
   }
   use {'declancm/cinnamon.nvim', config = "require('plugins.cinnamon')"}
+  use {'nvim-pack/nvim-spectre'}
 
   -- Snippets & Language & Syntax
   use {'windwp/nvim-autopairs', after = {'nvim-treesitter', 'nvim-cmp'}, config = "require('plugins.autopairs')"}

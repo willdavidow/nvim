@@ -126,6 +126,7 @@ local mappings = {
     q = { '<cmd>TSLspFixCurrent<CR>',                    'quick fix' },
     r = { 'rename' },
     s = { '<cmd>Telescope symbols<CR>',                  'symbols' },
+    t = { '<cmd>LspToggleAutoFormat<CR>',                'toggle format on save' },
   },
 
   d = {
@@ -173,8 +174,9 @@ local mappings = {
     f = { 'file' },
     w = { 'word' },
     l = { "<cmd>lua require'telescope'.extensions.repo.list{file_ignore_patterns={'/%.cache/', '/%.cargo/', '/%.local/', '/%timeshift/', '/usr/', '/srv/', '/%.oh%-my%-zsh'}}<CR>", 'list' },
+    r = { 'refactor' },
+    s = { "<cmd>SessionSave<CR>",                                    'save session' },
     t = { "<cmd>TodoTrouble<CR>",                                    'todo' },
-    s = { "<cmd>SessionSave<CR>",                                    'save session' }
   },
 
   s = {
